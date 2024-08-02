@@ -11,8 +11,9 @@ Write the twitter clone API.
 
 ## Endpoints
 
-| **User**            |                                           |
+| Endpoint            | Description                               |
 | ------------------- | ----------------------------------------- |
+| **User**            |                                           |
 | /register           | Register the new user                     |
 | /login              | Login                                     |
 | /logout             | Logout                                    |
