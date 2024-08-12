@@ -1,9 +1,7 @@
 const User = require('../models/User');
-const Feed = require('../models/Feed');
-
 const asyncHandler = require('express-async-handler');
 
-const GetFeed = asyncHandler(async (req, res) => {
+const Follow = asyncHandler(async (req, res) => {
     try {
 
     } catch (err) {
@@ -12,7 +10,7 @@ const GetFeed = asyncHandler(async (req, res) => {
       }
 });
 
-const CreateTweet = asyncHandler(async (req, res) => {
+const Unfollow = asyncHandler(async (req, res) => {
     try {
 
     } catch (err) {
@@ -22,6 +20,6 @@ const CreateTweet = asyncHandler(async (req, res) => {
 });
 
 module.exports = {
-    GetFeed,
-    CreateTweet,
+    Follow,
+    Unfollow
 }
