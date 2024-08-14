@@ -22,7 +22,9 @@ simple Twitter clone API built with Node.js, Express, and MongoDB. This project 
 | **Feed**                |                                           |
 | /api/feed               | Get the message feed for the current user |
 | /api/tweet              | Create new tweet                          |
-  
+
+* Details api endpoints to see more aftre run and see to http://localhost:8080/api-docs/
+
 ## Prerequisites
 
 - Node.js: Version 14 or higher.
@@ -67,6 +69,8 @@ ACCESS_TOKEN_SECRET="access token secret"
 ```bash
 npm start
 ```
+> can view the API documents after run to link http://localhost:8080/api-docs/
+
 - To run the test suite:
 ```bash
 npm test
