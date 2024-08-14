@@ -64,7 +64,7 @@ const Register = asyncHandler(async (req, res) => {
         const userEx = await User.findOne({username:username}).exec();
 
         if (userEx){
-            return res.status(400).json({ message: "User with this already exists" });
+            return res.status(409).json({ message: "User with this already exists" });
         }
 
         const hashedPwd = await bcrypt.hash(password.trim(), 10);

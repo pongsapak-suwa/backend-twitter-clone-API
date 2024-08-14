@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const connectDB  = require('./config/dbConnect.js');
+const setupSwagger = require('./config/swaggerConfig');
 const cookieParser = require('cookie-parser');
 const http = require('http');
 
@@ -8,6 +9,7 @@ const app = express()
 
 require('dotenv').config()
 
+setupSwagger(app);
 connectDB();
 const port = process.env.PORT || 8080
 app.use(cors());
