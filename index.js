@@ -1,7 +1,8 @@
-const express = require('express')
-const cors = require('cors')
-const connectDB  = require('./config/dbConnect.js')
+const express = require('express');
+const cors = require('cors');
+const connectDB  = require('./config/dbConnect.js');
 const cookieParser = require('cookie-parser');
+const http = require('http');
 
 const app = express()
 
@@ -17,12 +18,15 @@ app.use('/auth', require('./routes/authRoutes.js'));
 app.use('/api', require('./routes/userRoutes.js'));
 app.use('/api', require('./routes/feedRoutes.js'));
 
+const server = http.createServer(app);
 
-app.listen(port, async () => {
+server.listen(port, () => {
   try{
-    console.log(`Server running on port ${port}`)
+  console.log(`Server running on port ${port}`)
 
-  } catch (err) {
-    console.error("Error connecting to MongoDB:", err);
+} catch (err) {
+  console.error("Error connecting to MongoDB:", err);
   }
-})
+});
+
+module.exports = server;

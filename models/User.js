@@ -30,9 +30,33 @@ userSchema.methods.getAccessToken = function() {
                 "username": this.username,
         },
         process.env.ACCESS_TOKEN_SECRET,
-        { expiresIn: "1d"}
+        {   expiresIn: "1d"}
     );
     return accessToken;
 }
+
+userSchema.methods.getAccessTokenLogout = function(authHeader) {
+    const accessToken = jwt.sign({
+        authHeader
+        },
+        process.env.ACCESS_TOKEN_SECRET,
+        {   expiresIn: "1"}
+    );
+    return accessToken;
+}
+
+userSchema.methods.follow = function (id) {
+    if(this.following.indexOf(id) === -1){
+        this.following.push(id);
+    }
+    return this.save();
+};
+
+userSchema.methods.unfollow = function (id) {
+    if(this.following.indexOf(id) !== -1){
+        this.following.remove(id);
+    }
+    return this.save();
+};
 
 module.exports = mongoose.model('User', userSchema);

@@ -5,6 +5,6 @@ const userControllers = require('../controllers/userControllers')
 
 router.put('/follow/:user_id', verifyJWT ,userControllers.Follow);
 
-router.delete('/unfollow/:user_id', verifyJWT ,userControllers.Unfollow);
+router.put('/unfollow/:user_id', verifyJWT ,userControllers.Unfollow);
 
 module.exports = router;
