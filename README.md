@@ -1,8 +1,8 @@
 # Backend test project
 
-## Requirements
+simple Twitter clone API built with Node.js, Express, and MongoDB. This project allows users to register, log in, tweet messages, and follow other users. JWT (JSON Web Token) is used for authentication.
 
-Write the twitter clone API.
+## Features
 
 - User can register with username and password.
 - API will require JWT token to authorize.
@@ -11,26 +11,63 @@ Write the twitter clone API.
 
 ## Endpoints
 
-| Endpoint            | Description                               |
-| ------------------- | ----------------------------------------- |
-| **User**            |                                           |
-| /register           | Register the new user                     |
-| /login              | Login                                     |
-| /logout             | Logout                                    |
-| /follow/[user_id]   | Follow other user                         |
-| /unfollow/[user_id] | Unfollow a user                           |
-| **Feed**            |                                           |
-| /feed               | Get the message feed for the current user |
-| /tweet              | Create new tweet                          |
+| Endpoint                | Description                               |
+| ----------------------- | ----------------------------------------- |
+| **User**                |                                           |
+| /auth/register          | Register the new user                     |
+| /auth/login             | Login                                     |
+| /auth/logout            | Logout                                    |
+| /api/follow/[user_id]   | Follow other user                         |
+| /api/unfollow/[user_id] | Unfollow a user                           |
+| **Feed**                |                                           |
+| /api/feed               | Get the message feed for the current user |
+| /api/tweet              | Create new tweet                          |
+  
+## Prerequisites
 
-## Instruction
+- Node.js: Version 14 or higher.
+- MongoDB: Running locally or on a cloud service like MongoDB Atlas.
 
-Fork this repository, do the work, push the code and alert hr@smilefokus.com when you done. The instruction to run the code is required.
+## Getting Started
 
-Testing is optional but the team will be very happy if you have it :)
+### 1. Clone the repository
+```bash
+git clone https://github.com/pongsapak-suwa/backend-twitter-clone-API.git
+cd backend-twitter-clone-API
+```
+### 2. Install Dependencies
+```bash
+npm install
+```
 
-Use NodeJS and MongoDB with any framework or just plain javascript or typescript OR! if you have strong opinion on the infrastructure choice do not hesitate to present to us.
+### 2.1. Open docker and run docker compose (optional)
+- Docker up (run MongoDB)
+```bash
+docker-compose up --build -d
+```
 
-Any question plese contact hr@smilefokus.com
+- Docker down (close MongoDB)
+```bash
+docker-compose down
+```
 
-Happy Coding :)
+### 4. Set up .env file
+
+- create file name '.env' or change name '.env.example' to '.env' with the following content.
+```bash
+PORT=8080
+DATABASE_URI="mongodb://rootuser:rootpass@localhost:27017/test?authSource=admin"
+ACCESS_TOKEN_SECRET="access token secret"
+```
+* if doens use local MongoDB used by docker-compose.yml change the URI for connecting to your MongoDB
+
+### 5. Instruction to run the code
+
+- To start the server in development mode:
+```bash
+npm start
+```
+- To run the test suite:
+```bash
+npm test
+```
